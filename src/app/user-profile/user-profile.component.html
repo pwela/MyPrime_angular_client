@@ -1,0 +1,113 @@
+<div class="main" *ngIf="userProfile">
+  <h3>Personal informations:</h3>
+  <div>Username: {{ userProfile.Username }}</div>
+  <div *ngIf="userProfile.Birthday">
+    Birthday: {{ userProfile.Birthday.slice(0, 10) }}
+  </div>
+  <div *ngIf="userProfile.Email">email: {{ userProfile.Email }}</div>
+  <br />
+  <div></div>
+
+  <div *ngIf="userProfile.FavoriteMovies.length > 0">
+    <h3>Your favorites movies:</h3>
+    <app-movie-card
+      [profileView]="true"
+      [favoriteMovies]="favoriteMovies"
+    ></app-movie-card>
+  </div>
+  <h3 *ngIf="userProfile.FavoriteMovies.length <= 0">
+    You don't have any favorite movie yet
+  </h3>
+
+  <div style="margin: 10px">
+    <button
+      style="margin: 10px"
+      mat-raised-button
+      class="button-confirmation"
+      color="primary"
+      (click)="goToHomeScreen()"
+    >
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+    <button
+      style="margin: 10px"
+      mat-raised-button
+      class="button-confirmation"
+      color="secondary"
+      (click)="toggleUpdateSection()"
+    >
+      <mat-icon>edit</mat-icon>
+      Edit profile
+    </button>
+    <button
+      style="margin: 10px"
+      mat-raised-button
+      class="button-confirmation"
+      color="error"
+      (click)="deleteProfile()"
+      color="accent"
+    >
+      <mat-icon>person_remove</mat-icon>
+      Delete profile
+    </button>
+  </div>
+  <mat-card *ngIf="updateSection === true">
+    <mat-card-header>
+      <mat-card-title>Profile update!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="userData.Username"
+            placeholder="Username"
+            type="text"
+            name="Username"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="userData.Password"
+            type="password"
+            placeholder="Password"
+            name="Password"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="userData.Email"
+            type="email"
+            placeholder="Email"
+            name="Email"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [(ngModel)]="userData.Birthday"
+            name="Birthday"
+          />
+          <mat-hint>Enter Birthday (MM/DD/YYYY)</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="updateProfile()">
+        Confirm Update
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

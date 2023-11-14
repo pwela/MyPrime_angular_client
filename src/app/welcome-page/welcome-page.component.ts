@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { UserRegistrationFormComponent } from "../user-registration-form/user-registration-form.component";
 import { UserLoginFormComponent } from "../user-login-form/user-login-form.component";
 import { MatDialog } from "@angular/material/dialog";
@@ -9,7 +10,7 @@ import { MatDialog } from "@angular/material/dialog";
   styleUrls: ["./welcome-page.component.scss"],
 })
 export class WelcomePageComponent {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router) {}
   ngOnInit(): void {}
   // This is the function that will open the dialog when the signup button is clicked
   openUserRegistrationDialog(): void {

@@ -1,0 +1,14 @@
+.dialog-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-card > * {
+  margin: 5px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+mat-card-content > div {
+  margin-top: 7px;
+}

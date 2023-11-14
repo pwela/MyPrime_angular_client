@@ -32,8 +32,12 @@ export class UserLoginFormComponent implements OnInit {
         // Logic for a successful user logingoes here! (To be implemented)
         this.dialogRef.close();
         console.log(result);
-        localStorage.setItem("user", result.user.username);
+        localStorage.setItem("user", result.user.Username);
         localStorage.setItem("token", result.token);
+        const favoriteMoviesStringified = JSON.stringify(
+          result.user.FavoriteMovies
+        );
+        localStorage.setItem("favoriteMoviesList", favoriteMoviesStringified);
 
         this.snackBar.open(
           result.user.Username + " logged successfully",

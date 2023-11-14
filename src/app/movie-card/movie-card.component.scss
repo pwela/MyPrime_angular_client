@@ -1,0 +1,44 @@
+.movies,
+.favorite_movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+  width: fit-content;
+
+  padding-top: 10px;
+}
+
+mat-card {
+  background-color: azure;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+mat-card:hover {
+  border: 2px;
+  border-color: blue;
+  border-style: solid;
+}
+.main {
+  width: fit-content;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+mat-card > * {
+  margin-bottom: 5px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+mat-card-actions > mat-icon {
+  color: red;
+}
+
+mat-card-actions > mat-icon:hover {
+  color: pink;
+  cursor: pointer;
+}

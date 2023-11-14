@@ -1,7 +1,7 @@
 <!-- <p>user-registration-form works!</p> -->
 <mat-card>
-  <mat-card-header>
-    <mat-card-title>Sign Up!</mat-card-title>
+  <mat-card-header style="margin-bottom: 10px">
+    <mat-card-title><h3>Sign Up!</h3></mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form>
@@ -36,18 +36,29 @@
         />
       </mat-form-field>
       <mat-form-field>
+        <mat-label>Enter Birthday</mat-label>
         <input
           matInput
+          [matDatepicker]="picker"
           [(ngModel)]="userData.Birthday"
-          type="date"
-          placeholder="Birthday"
           name="Birthday"
         />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="registerUser()" color="primary">
+    <button
+      style="margin-left: 60%"
+      mat-raised-button
+      (click)="registerUser()"
+      color="primary"
+    >
       Sign Up
     </button>
   </mat-card-actions>

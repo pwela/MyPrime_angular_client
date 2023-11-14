@@ -19,10 +19,29 @@ import { UserLoginFormComponent } from "./user-login-form/user-login-form.compon
 import { MovieCardComponent } from "./movie-card/movie-card.component";
 import { WelcomePageComponent } from "./welcome-page/welcome-page.component";
 import { MatIconModule } from "@angular/material/icon";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
+import { MovieViewComponent } from "./movie-view/movie-view.component";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+
+const user = localStorage.getItem("user") || "";
 
 const appRoutes: Routes = [
   { path: "welcome", component: WelcomePageComponent },
   { path: "movies", component: MovieCardComponent },
+  {
+    path: "users",
+    component: UserProfileComponent,
+  },
+  /*
+  {
+    path: "users/" + encodeURIComponent(user),
+    component: UserProfileComponent,
+  },*/
+  {
+    path: "users/" + encodeURIComponent(localStorage.getItem("user") || ""),
+    component: UserProfileComponent,
+  },
   { path: "", redirectTo: "welcome", pathMatch: "prefix" },
 ];
 @NgModule({
@@ -32,6 +51,8 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
+    UserProfileComponent,
+    MovieViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +68,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
