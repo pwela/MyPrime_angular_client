@@ -15,10 +15,14 @@ export class MovieCardComponent {
   movieView: string = "";
   userProfile: any;
   favoriteMoviesListParsed: any;
-  // used to signal the coponent to display the profileView
+  /**
+   * used to signal the component to display the profileView
+   */
   @Input() profileView: boolean = false;
 
-  // favorite movies imported from profile view
+  /**
+   * favorite movies imported from profile view
+   */
   @Input() favoriteMovies: any[] = [];
 
   constructor(

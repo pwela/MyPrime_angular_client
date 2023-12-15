@@ -9,7 +9,7 @@ import {
 import { Observable, throwError } from "rxjs";
 import { map } from "rxjs/operators";
 
-// Declaring the api url that will provide data for the client app
+/** Declaring the api url that will provide data for the client app*/
 const apiUrl = "https://my-prime-movies-95318ccd1782.herokuapp.com/";
 @Injectable({
   providedIn: "root",
@@ -49,7 +49,7 @@ export class FetchApiDataService {
       .pipe(this.extractResponseData, catchError(this.handleError));
   }
 
-  // Get One movie
+  /** Get One movie*/
   getOneMovie(movieDetails: any): Observable<any> {
     const token = localStorage.getItem("token");
     return this.http
@@ -62,7 +62,7 @@ export class FetchApiDataService {
       .pipe(this.extractResponseData, catchError(this.handleError));
   }
 
-  // Get movie  director
+  /** Get movie  director*/
   getDirector(movieDetails: any): Observable<any> {
     const token = localStorage.getItem("token");
     return this.http
@@ -78,7 +78,7 @@ export class FetchApiDataService {
       .pipe(this.extractResponseData, catchError(this.handleError));
   }
 
-  // Get movie  genre
+  /** Get movie  genre*/
   getGenre(movieDetails: any): Observable<any> {
     const token = localStorage.getItem("token");
     return this.http
@@ -91,7 +91,7 @@ export class FetchApiDataService {
       .pipe(this.extractResponseData, catchError(this.handleError));
   }
 
-  // Get a user
+  /** Get a user*/
   getUser(): Observable<any> {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user") || "";
