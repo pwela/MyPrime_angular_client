@@ -11,6 +11,10 @@ https://pwela.github.io/MyPrime_angular_client/
 <img alt="App screenshoot" src="/assets/homepage.png"/>
 </div>
 
+## TypeDoc generted documentation
+
+<a href="/docs">Click here</a>
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
